@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="employees">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="employee" minOccurs="0" maxOccurs="unbounded" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="employee">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="name" />
+<xsd:element ref="salary" />
+<xsd:element ref="password" />
+</xsd:sequence>
+<xsd:attribute ref="id" use="required" />
+<xsd:attribute ref="mobilePhone" use="required" />
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="name" type="xsd:string" />
+<xsd:element name="salary" type="xsd:float" />
+<xsd:element name="password">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:pattern value="[a-zA-Z0-9]{7}" />
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:attribute name="id" type="xsd:positiveInteger" />
+<xsd:attribute name="mobilePhone">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:length value="10" />
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:attribute>
+
+</xsd:schema>
