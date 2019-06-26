@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+				<xsd:element name="employee">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="name" type="xsd:string"/>
+							<xsd:element name="salary" type="xsd:float"/>
+							<xsd:element name="service">
+								<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="name" type="xsd:string"/>
+							<xsd:element name="NumberOfEmp" type="xsd:positiveInteger"/>
+                                <xsd:element name="sections"> 
+								    <xsd:complexType>
+						                <xsd:sequence>
+										    <xsd:element name="section">
+								                <xsd:complexType>
+												    <xsd:sequence>
+							                             <xsd:element name="name" type="xsd:string"/>
+														 <xsd:element name="NumberOfEmp" type="xsd:positiveInteger"/>
+													</xsd:sequence>
+													<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+												</xsd:complexType>
+								            </xsd:element>
+                                        </xsd:sequence>									
+					                </xsd:complexType>
+								
+								</xsd:element>							
+						</xsd:sequence>
+						<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+					</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+				
+</xsd:schema>
