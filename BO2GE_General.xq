@@ -91,6 +91,13 @@ declare function local:addAttributes($root,$e)
   return $ea
 };
 
+declare function local:addAttributesExceptMinAndMaxOccurs($root,$e)
+{ let $el := $root//$e
+  for $ea in $el/@*
+  where name($ea)!="name" and name($ea)!="type" and name($ea)!="minOccurs" and name($ea)!="maxOccurs"
+  return $ea
+};
+
 declare function local:addAnnotation($root,$e)
 { let $el := $root//$e
   return if ($el[xsd:annotation]) then $el/xsd:annotation else ()
@@ -220,7 +227,7 @@ declare function local:procGroup($root,$g)
                then concat($el/@name,'Type') else $el/@type
   return 
     <xsd:element name="{$el/@name}" type="{$type}">
-      { local:addAttributes(/,$el),
+      { local:addAttributesExceptMinAndMaxOccurs(/,$el),
         local:addAnnotation(/,$el) } 
     </xsd:element>
 }
